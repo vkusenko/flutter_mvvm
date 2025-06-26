@@ -69,16 +69,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ApiService {
-  final String baseUrl;
-
-  ApiService(this.baseUrl);
-
-  void fetchData() {
-    print('Fetching from $baseUrl');
-    // pretend API call
-  }
-}
+// Removed ApiService from here, it's now in lib/data/services/
 
 class ApiService2 {
   final String baseUrl;
