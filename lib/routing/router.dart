@@ -1,6 +1,11 @@
 import 'package:fluttermvvm/routing/routes.dart';
 import 'package:fluttermvvm/ui/screens/auth/auth_viewmodel.dart';
 import 'package:fluttermvvm/ui/screens/auth/login_screen.dart';
+import 'package:fluttermvvm/ui/screens/auth/phone_number/phone_number_screen.dart';
+import 'package:fluttermvvm/ui/screens/auth/dob/dob_screen.dart';
+import 'package:fluttermvvm/ui/screens/auth/otp/otp_screen.dart';
+import 'package:fluttermvvm/ui/screens/auth/policy/policy_screen.dart';
+import 'package:fluttermvvm/ui/screens/auth/setup_pin/setup_pin_screen.dart';
 import 'package:fluttermvvm/ui/screens/home/home_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -52,6 +57,30 @@ GoRouter router(AuthViewModel authViewModel) => GoRouter(
           builder: (context, state) {
             return TestScreen3();
           }
+      ),
+      GoRoute(
+        path: AuthRoutes.auth,
+        redirect: (_, __) => AuthRoutes.authPhoneNumber,
+      ),
+      GoRoute(
+        path: AuthRoutes.authPhoneNumber,
+        builder: (context, state) => const PhoneNumberScreen(),
+      ),
+      GoRoute(
+        path: AuthRoutes.authDOB,
+        builder: (context, state) => const DobScreen(),
+      ),
+      GoRoute(
+        path: AuthRoutes.authOTP,
+        builder: (context, state) => const OtpScreen(),
+      ),
+      GoRoute(
+        path: AuthRoutes.authPolicy,
+        builder: (context, state) => const PolicyScreen(),
+      ),
+      GoRoute(
+        path: AuthRoutes.authSetupPIN,
+        builder: (context, state) => const SetupPinScreen(),
       ),
     ]
 );
