@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'local_data_service.dart';
 
@@ -69,4 +70,19 @@ class LocalDataServiceImpl implements LocalDataService {
   //   }
   //   return null;
   // }
+
+  @override
+  Future<void> saveObject(String key, Map<String, dynamic> jsonObject) async {
+    final String jsonString = jsonEncode(jsonObject);
+    await saveData(key, jsonString);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> loadObject(String key) async {
+    final String? jsonString = await loadData(key);
+    if (jsonString != null) {
+      return jsonDecode(jsonString) as Map<String, dynamic>;
+    }
+    return null;
+  }
 }
