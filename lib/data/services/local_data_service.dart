@@ -12,6 +12,6 @@ abstract class LocalDataService {
   Future<int?> loadInt(String key);
 
   // Potentially methods for storing/retrieving complex objects (e.g., after JSON serialization)
-  // Future<void> saveObject(String key, Map<String, dynamic> jsonObject);
-  // Future<Map<String, dynamic>?> loadObject(String key);
+  Future<void> saveObject(String key, Map<String, dynamic> jsonObject);
+  Future<Map<String, dynamic>?> loadObject(String key);
 }
